@@ -1,0 +1,3 @@
+# Netscape HTTP Cookie File
+# Written by HTTrack Website Copier
+.yandex.ru	TRUE	/	FALSE	1828847386	bh	YJrOytcGagrcytW6D9q9tbYP
