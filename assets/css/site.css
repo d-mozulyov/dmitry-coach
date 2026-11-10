@@ -1,0 +1,95 @@
+/*
+ * Дополнения к стилям конструктора Т-Банка (assets/css/tb/).
+ * Здесь всё, что раньше делал их JavaScript, плюс правки под наш site.js.
+ */
+
+/* Плавная прокрутка к разделам по ссылкам меню */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Мобильное меню: пока открыто, страница под ним не прокручивается */
+html.menu-open,
+html.menu-open body {
+  overflow: hidden;
+}
+
+/* Карусель отзывов: прокрутка вместо JS-слайдера Т-Банка */
+.s-reviews-type-4__list-wrapper {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.s-reviews-type-4__list-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.s-reviews-type-4__slide {
+  scroll-snap-align: start;
+}
+@media screen and (min-width: 960px) {
+  .s-reviews-type-4__list-wrapper {
+    overflow-x: hidden;
+  }
+}
+
+/* Галерея сертификатов «кирпичиками» (на странице Agile) — на CSS-колонках */
+.s-gallery-bricks-type-1__wrapper {
+  column-count: 1;
+  column-gap: 0;
+}
+.s-gallery-bricks-type-1__item {
+  width: 100% !important;
+  break-inside: avoid;
+}
+@media screen and (min-width: 640px) {
+  .s-gallery-bricks-type-1__wrapper {
+    column-count: 2;
+  }
+}
+@media screen and (min-width: 960px) {
+  .s-gallery-bricks-type-1__wrapper {
+    column-count: 3;
+  }
+}
+
+/* Увеличение картинки по клику */
+[data-zoom-src] {
+  cursor: zoom-in;
+}
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(17, 17, 17, 0.85);
+  cursor: zoom-out;
+}
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+}
+.lightbox__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+  font-size: 24px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
